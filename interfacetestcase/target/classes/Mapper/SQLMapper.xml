@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间mapper,如果有多个mapper文件，这个必须唯一 -->
+<mapper namespace="com.litl.www.model">
+    <select id="loginCase" parameterType="Integer" resultType="com.litl.www.model.LoginCase">
+        select * from loginCase where id=#{id}
+    </select>
+
+    <select id="addUserCase" parameterType="Integer" resultType="com.litl.www.model.AddUserCase">
+        select * from addUserCase where id=#{id}
+    </select>
+
+    <select id="getUserListCase" parameterType="Integer" resultType="com.litl.www.model.GetUserListCase">
+        select * from getUserListCase where id=#{id}
+    </select>
+
+    <select id="getUserInfoCase" parameterType="Integer" resultType="com.litl.www.model.GetUserInfoCase">
+        select * from getUserInfoCase where id=#{id}
+    </select>
+
+    <select id="updateUserInfoCase" parameterType="Integer" resultType="com.litl.www.model.UpdateUserInfoCase">
+        select * from updateUserInfoCase where id=#{id}
+    </select>
+
+    <select id="addUser" parameterType="com.litl.www.model.AddUserCase" resultType="com.litl.www.model.User">
+        select * from user where
+        userName=#{userName}
+        and password=#{password}
+        and sex=#{sex}
+        and age=#{age}
+        and permission=#{permission}
+        and isDelete=#{isDelete}
+    </select>
+
+    <select id="getUserList" parameterType="com.litl.www.model.GetUserListCase" resultType="com.litl.www.model.User">
+        select * from user
+        <trim prefix="WHERE" prefixOverrides="and">
+            <if test="null != userName and '' != userName">
+                and userName=#{userName}
+            </if>
+            <if test="null != sex and '' != sex">
+                and sex=#{sex}
+            </if>
+            <if test="null != age and '' != age">
+                and age=#{age}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getUserInfo" parameterType="com.litl.www.model.GetUserInfoCase" resultType="com.litl.www.model.User">
+        select * from user where id=#{userId}
+    </select>
+
+    <select id="getUpdateUserInfo" parameterType="com.litl.www.model.UpdateUserInfoCase" resultType="com.litl.www.model.User">
+        select * from user
+        <trim prefix="WHERE" prefixOverrides="and">
+            <if test="null != userName and '' != userName">
+                and userName=#{userName}
+            </if>
+            <if test="null != sex and '' != sex">
+                and sex=#{sex}
+            </if>
+            <if test="null != age and '' != age">
+                and age=#{age}
+            </if>
+            <if test="null != permission and '' != permission">
+                and permission=#{permission}
+            </if>
+            <if test="null != isDelete and '' != isDelete">
+                and isDelete=#{isDelete}
+            </if>
+        </trim>
+        and id=#{userId}
+    </select>
+</mapper>

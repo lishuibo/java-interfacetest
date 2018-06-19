@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="用户管理系统测试套件">
+    <test name="用户管理系统测试用例">
+        <classes>
+            <class name="com.litl.www.cases.LoginTest">
+                <methods>
+                    <include name="loginTrue"/>
+                    <include name="loginFalse"/>
+                </methods>
+            </class>
+
+            <!--<class name="com.litl.www.cases.AddUserTest">-->
+                <!--<methods>-->
+                    <!--<include name="addUser"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+
+            <!--<class name="com.litl.www.cases.GetUserListTest">-->
+                <!--<methods>-->
+                    <!--<include name="getUserList"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+
+            <class name="com.litl.www.cases.GetUserInfoTest">
+                <methods>
+                    <include name="getUserInfo"/>
+                </methods>
+            </class>
+
+            <!--<class name="com.litl.www.cases.UpdateUserInfoTest">-->
+                <!--<methods>-->
+                    <!--<include name="updateUserInfo"/>-->
+                    <!--<include name="deleteUserInfo"/>-->
+                <!--</methods>-->
+            <!--</class>-->
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="com.litl.www.config.ExtentTestNGIReporterListener" />
+    </listeners>
+</suite>
